@@ -1,0 +1,12 @@
+<form style="text-align: center" [formGroup]="login_form">
+  <div style="padding: 20px">
+    <input formControlName="username" type="text" placeholder="Nombre de usuario">
+  </div>
+  <br>
+  <div style="padding: 20px">
+    <input formControlName="password" type="text" placeholder="Contraseña">
+  </div>
+  <br>
+  <button (click)="login()">Login</button>
+</form>
+
