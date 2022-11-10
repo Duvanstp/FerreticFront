@@ -1,12 +1,15 @@
-<form style="text-align: center" [formGroup]="login_form">
-  <div style="padding: 20px">
-    <input formControlName="username" type="text" placeholder="Nombre de usuario">
+
+<div class="container">
+<form class="forms" [formGroup]="login_form">
+  <div >
+    <input class="inputs" formControlName="username" type="text" placeholder="Nombre de usuario" required>
   </div>
   <br>
-  <div style="padding: 20px">
-    <input formControlName="password" type="text" placeholder="Contraseña">
+  <div>
+    <input class="inputs" formControlName="password" type="password" placeholder="Contraseña" required>
   </div>
   <br>
-  <button (click)="login()">Login</button>
+  <button class="buttons" type="submit" (click)="login()">Login</button>
 </form>
+</div>
 
