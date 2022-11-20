@@ -1,1 +1,81 @@
-<p>empleados works!</p>
+<div style="padding:30px ">
+  <p-table [value]="empleados" styleClass="p-datatable-striped" [paginator]="true" [rows]="5" [showCurrentPageReport]="true">
+    <ng-template pTemplate="caption">
+      <p-button icon="pi pi-plus" (click)="ver_form_empleados= true; empleado_form.reset()" label="Crear Empleado"></p-button>
+    </ng-template>
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Id</th>
+        <th>Nombre</th>
+        <th>Apellidos</th>
+        <th>Dirección</th>
+        <th>telefono</th>
+        <th>correo</th>
+        <th>Fecha Nacimiento</th>
+        <th>username</th>
+        <th>Sucursal</th>
+        <th></th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-empleado>
+      <tr>
+        <td>{{empleado.id}}</td>
+        <td>{{empleado.nombre}}</td>
+        <td>{{empleado.apellidos}}</td>
+        <td>{{empleado.direccion}}</td>
+        <td>{{empleado.telefono}}</td>
+        <td>{{empleado.correo}}</td>
+        <td>{{empleado.fecha_nacimiento}}</td>
+        <td>{{empleado.username}}</td>
+        <td>{{empleado.sucursal.ciudad}}</td>
+        <td>
+          <i pTooltip="Editar {{empleado.nombre}}" style="cursor: pointer" class="pi pi-pencil" (click)="llenar_form_empleado(empleado);ver_form_empleados=true"></i>
+        </td>
+
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
+<p-dialog header="Cine" [(visible)]="ver_form_empleados">
+  <form style="text-align: center" [formGroup]="empleado_form">
+    <div style="padding: 20px">
+      <input formControlName="nombre" type="text" placeholder="Nombres">
+    </div>
+    <br>
+    <div style="padding: 20px">
+      <input formControlName="apellidos" type="text" placeholder="Apellidos">
+    </div>
+    <br>
+    <div style="padding: 20px">
+      <input formControlName="direccion" type="text" placeholder="Dirección">
+    </div>
+    <br>
+    <div style="padding: 20px">
+      <input formControlName="telefono" type="text" placeholder="Telefono">
+    </div>
+    <br>
+    <div style="padding: 20px">
+      <input formControlName="correo" type="text" placeholder="Correo">
+    </div>
+    <br>
+    <div style="padding: 20px">
+      <input formControlName="fecha_nacimiento" type="text" placeholder="Fecha Nacimiento">
+    </div>
+    <br>
+    <div style="padding: 20px">
+      <input formControlName="username" type="text" placeholder="Usuario">
+    </div>
+    <br>
+    <div style="padding: 20px">
+      <input formControlName="password" type="text" placeholder="Contraseña">
+    </div>
+    <br>
+    <div style="padding: 20px">
+      <label >sucursales</label>
+      <p-dropdown [options]="sucursales" formControlName="sucursal_id" optionLabel="ciudad" optionValue="id"></p-dropdown>
+    </div>
+  </form>
+  <ng-template pTemplate="footer">
+    <button [disabled]="!empleado_form.valid" pButton label="Guardar" (click)="guardar_empleado()"></button>
+  </ng-template>
+</p-dialog>

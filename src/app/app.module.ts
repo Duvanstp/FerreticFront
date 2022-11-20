@@ -35,6 +35,8 @@ import {AuthGuard} from "./providers/auth.guard";
 import {PasswordModule} from 'primeng/password';
 
 
+// @ts-ignore
+// @ts-ignore
 @NgModule({
   declarations: [
     AppComponent,
@@ -68,7 +70,7 @@ import {PasswordModule} from 'primeng/password';
     InputTextModule,
     PasswordModule
   ],
-  providers: [ApiService,MessageService,AuthGuard],
+  providers: [ApiService, MessageService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
