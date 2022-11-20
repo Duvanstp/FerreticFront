@@ -1,7 +1,7 @@
 <div style="padding:30px ">
   <p-table [value]="clientes" styleClass="p-datatable-striped" [paginator]="true" [rows]="5" [showCurrentPageReport]="true">
     <ng-template pTemplate="caption">
-      <p-button icon="pi pi-plus" (click)="ver_form_cliente= true" label="Crear Cliente"></p-button>
+      <p-button icon="pi pi-plus" (click)="ver_form_cliente= true; cliente_form.reset()" label="Crear Cliente"></p-button>
     </ng-template>
     <ng-template pTemplate="header">
       <tr>
