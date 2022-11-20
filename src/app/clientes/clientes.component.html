@@ -1,1 +1,59 @@
-<p>clientes works!</p>
+<div style="padding:30px ">
+  <p-table [value]="clientes" styleClass="p-datatable-striped" [paginator]="true" [rows]="5" [showCurrentPageReport]="true">
+    <ng-template pTemplate="caption">
+      <p-button icon="pi pi-plus" (click)="ver_form_cliente= true" label="Crear Cliente"></p-button>
+    </ng-template>
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Id</th>
+        <th>Nombre</th>
+        <th>Apellidos</th>
+        <th>Dirección</th>
+        <th>telefono</th>
+        <th>correo</th>
+        <th></th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-cliente>
+      <tr>
+        <td>{{cliente.id}}</td>
+        <td>{{cliente.nombre}}</td>
+        <td>{{cliente.apellidos}}</td>
+        <td>{{cliente.direccion}}</td>
+        <td>{{cliente.telefono}}</td>
+        <td>{{cliente.correo}}</td>
+        <td>
+          <i pTooltip="Editar {{cliente.nombre}}" style="cursor: pointer" class="pi pi-pencil" (click)="llenar_form_clientes(cliente);ver_form_cliente=true"></i>
+        </td>
+
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
+<p-dialog header="Cine" [(visible)]="ver_form_cliente">
+  <form style="text-align: center" [formGroup]="cliente_form">
+    <div style="padding: 20px">
+      <input formControlName="nombre" type="text" placeholder="Nombres">
+    </div>
+    <br>
+    <div style="padding: 20px">
+      <input formControlName="apellidos" type="text" placeholder="Apellidos">
+    </div>
+    <br>
+    <div style="padding: 20px">
+      <input formControlName="direccion" type="text" placeholder="Dirección">
+    </div>
+    <br>
+    <div style="padding: 20px">
+      <input formControlName="telefono" type="text" placeholder="Telefono">
+    </div>
+    <br>
+    <div style="padding: 20px">
+      <input formControlName="correo" type="text" placeholder="Correo">
+    </div>
+    <br>
+    </form>
+  <ng-template pTemplate="footer">
+    <button [disabled]="!cliente_form.valid" pButton label="Guardar" (click)="guardar_cliente()"></button>
+  </ng-template>
+</p-dialog>

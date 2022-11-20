@@ -24,6 +24,7 @@ export class LoginComponent implements OnInit {
         data => {
           if (data!=undefined){
             this.api.usuario = data
+            this.api.add_token(this.api.usuario.token)
             this.router.navigate(['/home']);
             this.messageService.add({severity:'success', summary: 'Login', detail: 'Usuario logueado correctamente.'});
           }else{
