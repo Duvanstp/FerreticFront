@@ -14,29 +14,29 @@ export class AppComponent {
   constructor(public api:ApiService, private router:Router){
     this.items =[
       {label:'Gestión proveedores',command:(event) => {
-          this.router.navigate(['/home']);
+          this.router.navigate(['/proveedor']);
         }},
       {label:'Gestión sucursales',command:(event) => {
-          this.router.navigate(['/home']);
+          this.router.navigate(['/sucursal']);
         }},
-      {label:'Gestión empleados'},
+      {label:'Gestión empleados',command:(event) => {
+          this.router.navigate(['/empleado']);
+        }},
       {label:'Gestión productos',command:(event) => {
-          this.router.navigate(['/home']);
+          this.router.navigate(['/producto']);
         }},
-      {label:'Gestión ventas',command:(event) => {
-          this.router.navigate(['/home']);
-        }},
+
       {label:'Factura pedido',command:(event) => {
-          this.router.navigate(['/home']);
+          this.router.navigate(['/pedido']);
         }},
-      {label:' Detalle factura',command:(event) => {
-          this.router.navigate(['/home']);
+      {label:'Detalle factura',command:(event) => {
+          this.router.navigate(['/detallefactura']);
         }},
       {label:'Inventario',command:(event) => {
-          this.router.navigate(['/home']);
+          this.router.navigate(['/inventario']);
         }},
       {label:'Clientes',command:(event) => {
-          this.router.navigate(['/home']);
+          this.router.navigate(['/cliente']);
         }},
       {label:'Salir', command:(event) => {
           this.api.LogOut();
