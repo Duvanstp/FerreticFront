@@ -23,6 +23,7 @@ export class LoginComponent implements OnInit {
       .subscribe(
         data => {
           if (data!=undefined){
+            this.api.usuario = data
             this.router.navigate(['/home']);
             this.messageService.add({severity:'success', summary: 'Login', detail: 'Usuario logueado correctamente.'});
           }else{

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {MenuItem} from "primeng/api";
+import { MenuItem } from 'primeng/api/menuitem';
 import {ApiService} from "./providers/api.service";
 import {Router} from "@angular/router";
 
@@ -9,20 +9,34 @@ import {Router} from "@angular/router";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'FerreticFront';
-  items: MenuItem[] = [];
+   items: MenuItem[] = [] ;
 
   constructor(public api:ApiService, private router:Router){
     this.items =[
-      {label:'Gestión cine',command:(event) => {
+      {label:'Gestión proveedores',command:(event) => {
           this.router.navigate(['/home']);
         }},
-      {label:'Gestión Salas',command:(event) => {
+      {label:'Gestión sucursales',command:(event) => {
           this.router.navigate(['/home']);
         }},
-      {label:'Gestión Funciones'},
-      {label:'Gestión Peliculas',command:(event) => {
-          this.router.navigate(['/Home']);
+      {label:'Gestión empleados'},
+      {label:'Gestión productos',command:(event) => {
+          this.router.navigate(['/home']);
+        }},
+      {label:'Gestión ventas',command:(event) => {
+          this.router.navigate(['/home']);
+        }},
+      {label:'Factura pedido',command:(event) => {
+          this.router.navigate(['/home']);
+        }},
+      {label:' Detalle factura',command:(event) => {
+          this.router.navigate(['/home']);
+        }},
+      {label:'Inventario',command:(event) => {
+          this.router.navigate(['/home']);
+        }},
+      {label:'Clientes',command:(event) => {
+          this.router.navigate(['/home']);
         }},
       {label:'Salir', command:(event) => {
           this.api.LogOut();

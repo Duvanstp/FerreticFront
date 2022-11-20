@@ -8,7 +8,7 @@ import {Router} from "@angular/router";
 })
 export class ApiService {
 
-  empleado: any;
+  usuario: any;
   base_url = 'http://127.0.0.1:8000'
   header_login = new HttpHeaders().set('Content-Type', 'application/json')
   options_login = {headers:this.header_login}
@@ -48,7 +48,7 @@ export class ApiService {
     this.options_token = {headers:this.headers_token}
   }
   LogOut(){
-    this.empleado='';
+    this.usuario='';
     this.router.navigate(['/login']);
 
   }
