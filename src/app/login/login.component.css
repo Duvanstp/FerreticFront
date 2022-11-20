@@ -1,8 +1,8 @@
 
 .container{
   width: 80rem;
-  height: 30rem;
-  background-color: #504d4d;
+  height: 40rem;
+  background-color: #ded7d7;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10,12 +10,31 @@
   padding: 0;
 }
 .forms{
-  background-color: #182e80;
+  background-color: #3c498d;
   text-align: center;
-  padding: 3rem;
+  padding: 3rem 2rem;
   border-radius:10px;
-  border: 1px solid #10423a;
-  box-shadow: 7px 7px 5px #1f7da6;
+  border:0px inset #10423a;
+  box-shadow:4px 4px 4px #3585e0,
+  8px 8px 6px #35abe0,
+  10px 10px 6px #214a5b,
+  12px 12px 6px #3c5969;
   display: inline-block;
+}
+.textoddd {
+  font: bold 80px/1 arial;
+  text-transform: uppercase;
+  color: #137c79;
+  text-shadow: 0  2px  0   #137c79,
+  0  4px  0 #137c79,
+  0  6px  0   #137c79,
+  0  8px  0   #137c79,
+  0 6px  0 #248383,
+  0 12px  0 #113d56,
+  3px 8px 10px rgba(0,0,0,0.1),
+  3px 8px  5px rgba(0,0,0,0.3);
+}
+.forms:hover {
+
 }
 
