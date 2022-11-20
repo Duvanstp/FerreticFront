@@ -32,6 +32,7 @@ import { FacturaComponent } from './factura/factura.component';
 import { InventarioComponent } from './inventario/inventario.component';
 import { ClientesComponent } from './clientes/clientes.component';
 import {AuthGuard} from "./providers/auth.guard";
+import {PasswordModule} from 'primeng/password';
 
 
 @NgModule({
@@ -65,6 +66,7 @@ import {AuthGuard} from "./providers/auth.guard";
     DropdownModule,
     OverlayPanelModule,
     InputTextModule,
+    PasswordModule
   ],
   providers: [ApiService,MessageService,AuthGuard],
   bootstrap: [AppComponent]
