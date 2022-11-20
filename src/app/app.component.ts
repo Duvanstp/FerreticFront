@@ -14,29 +14,29 @@ export class AppComponent {
   constructor(public api:ApiService, private router:Router){
     this.items =[
       {label:'Gestión proveedores',command:(event) => {
-          this.router.navigate(['/proveedor']);
+          this.router.navigate(['/proveedores']);
         }},
       {label:'Gestión sucursales',command:(event) => {
-          this.router.navigate(['/sucursal']);
+          this.router.navigate(['/sucursales']);
         }},
       {label:'Gestión empleados',command:(event) => {
-          this.router.navigate(['/empleado']);
+          this.router.navigate(['/empleados']);
         }},
       {label:'Gestión productos',command:(event) => {
           this.router.navigate(['/producto']);
         }},
 
       {label:'Factura pedido',command:(event) => {
-          this.router.navigate(['/pedido']);
+          this.router.navigate(['/factura_pedido']);
         }},
       {label:'Detalle factura',command:(event) => {
-          this.router.navigate(['/detallefactura']);
+          this.router.navigate(['/detalle_factura']);
         }},
       {label:'Inventario',command:(event) => {
           this.router.navigate(['/inventario']);
         }},
       {label:'Clientes',command:(event) => {
-          this.router.navigate(['/cliente']);
+          this.router.navigate(['/clientes']);
         }},
       {label:'Salir', command:(event) => {
           this.api.LogOut();

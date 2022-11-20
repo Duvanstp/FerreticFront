@@ -2,19 +2,19 @@
 <form class="forms" [formGroup]="login_form">
   <div >
     <span class="p-float-label">
-      <input style="width:100%;" id="float-input" pPassword formControlName="username" type="text" required>
+      <input style="width:100%;" id="float-input" pInputText formControlName="username" type="text" required>
       <label for="float-input">Nombre de usuario</label>
   </span>
   </div>
   <br><br>
   <div>
     <span class="p-float-label">
-      <p-password id="password" formControlName="password" type="password" [toggleMask]="true"></p-password>
+      <p-password id="password" formControlName="password"  [toggleMask]="true"></p-password>
       <label for="password">Contraseña</label>
   </span>
   </div>
   <br>
-  <button pButton type="submit" (click)="login()" label="Login"></button>
+  <button pButton (click)="login()" label="Login"></button>
 </form>
 </div>
 
