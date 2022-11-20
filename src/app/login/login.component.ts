@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder} from "@angular/forms";
 import {ApiService} from "../providers/api.service";
+import {MessageService} from "primeng/api";
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -12,7 +13,7 @@ export class LoginComponent implements OnInit {
     username:[''],
     password:['']
   })
-  constructor(private fb:FormBuilder, private api:ApiService) { }
+  constructor(private fb:FormBuilder, private api:ApiService,private messageService: MessageService) { }
 
   ngOnInit(): void {
   }
@@ -20,7 +21,11 @@ export class LoginComponent implements OnInit {
     this.api.get_token(this.login_form.value)
       .subscribe(
         data => {
-          console.log(data)
+          if (data!=undefined){
+            this.messageService.add({severity:'success', summary: 'Login', detail: 'Usuario logueado correctamente.'});
+          }else{
+            this.messageService.add({severity:'error', summary: 'Login', detail: 'Usuario o contraseña incorrectos.'});
+          }
         }
       )
   }

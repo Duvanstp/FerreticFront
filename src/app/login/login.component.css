@@ -12,29 +12,10 @@
 .forms{
   background-color: #182e80;
   text-align: center;
-  padding: 2rem;
+  padding: 3rem;
   border-radius:10px;
   border: 1px solid #10423a;
   box-shadow: 7px 7px 5px #1f7da6;
+  display: inline-block;
 }
-.buttons{
-  border-radius: 6px;
-  background-color: #4b9fb2;
-  width: 50%;
-  height: 2rem;
-  border: 1px solid #10423a;
-}
-.inputs{
-  border-radius: 5px;
-  background-color: #c2bcbc;
-  font-family: monospace,sans-serif;
-  color: black;
-  height: 2rem;
-  width: 90%;
-  padding: 0.2rem;
-  border: 1px solid gray;
-}
-.buttons:hover{
-  width: 55%;
-  height: 2.3rem;
-}
+
