@@ -1,0 +1,22 @@
+<div style="padding: 20px" >
+
+
+  <p-table [value]="detalles">
+    <ng-template pTemplate="header">
+      <tr>
+        <th> Cantidad</th>
+        <th> Valor total</th>
+        <th> Factura id</th>
+        <th> Producto id</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-detalle>
+      <tr>
+        <td>{{detalle.cantidad}}</td>
+        <td>{{detalle.valor_total}}</td>
+        <td>{{detalle.factura_id}}</td>
+        <td>{{detalle.producto_id}}</td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>

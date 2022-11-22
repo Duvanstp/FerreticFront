@@ -12,6 +12,8 @@ import {PedidoComponent} from "./pedido/pedido.component";
 import {FacturaComponent} from "./factura/factura.component";
 import {InventarioComponent} from "./inventario/inventario.component";
 import {ClientesComponent} from "./clientes/clientes.component";
+import {DetalleComponent} from "./detalle/detalle.component";
+
 
 const routes:Routes =[
 
@@ -21,7 +23,8 @@ const routes:Routes =[
   {path:'empleados',component:EmpleadosComponent,canActivate:[AuthGuard]},
   {path:'producto',component:ProductoComponent,canActivate:[AuthGuard]},
   {path:'factura_pedido',component:PedidoComponent,canActivate:[AuthGuard]},
-  {path:'detalle_factura',component:FacturaComponent,canActivate:[AuthGuard]},
+  {path:'detalle_factura',component:DetalleComponent,canActivate:[AuthGuard]},
+  {path:'factura',component:FacturaComponent,canActivate:[AuthGuard]},
   {path:'inventario',component:InventarioComponent,canActivate:[AuthGuard]},
   {path:'clientes',component:ClientesComponent,canActivate:[AuthGuard]},
   {path:'login',component:LoginComponent},

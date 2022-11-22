@@ -32,6 +32,9 @@ export class AppComponent {
       {label:'Detalle factura',command:(event) => {
           this.router.navigate(['/detalle_factura']);
         }},
+      {label:'Factura',command:(event) => {
+          this.router.navigate(['/factura']);
+        }},
       {label:'Inventario',command:(event) => {
           this.router.navigate(['/inventario']);
         }},

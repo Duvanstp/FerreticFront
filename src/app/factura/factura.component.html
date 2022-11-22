@@ -1,1 +1,56 @@
-<p>factura works!</p>
+<div style="padding: 20px" >
+
+
+  <p-table [value]="facturas" styleClass="p-datatable-striped" [paginator]="true" [rows]="10"
+           [showCurrentPageReport]="true" [tableStyle]="{'min-width': '50rem'}"
+           currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
+    <ng-template pTemplate="caption">
+        <p-button icon="pi pi-plus" (click)="ver_form_factura=true" label="Generar Factura"> </p-button>
+    </ng-template>
+    <ng-template pTemplate="header">
+      <tr>
+        <th>  Id</th>
+        <th> Fecha de venta</th>
+        <th> Cliente Id</th>
+        <th> Empleado Id</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-factura>
+      <tr>
+        <td>{{factura.id}}</td>
+        <td>{{factura.fecha_venta}}</td>
+        <td>{{factura.cliente.nombre}}</td>
+        <td>{{factura.empleado.id}}</td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
+<p-dialog header="Factura" [(visible)]="ver_form_factura">
+  <form [formGroup]="factura_form" >
+    <br>
+    <div>
+      <span class="p-float-label">
+        <input id="fecha_venta" pInputText formControlName="fecha_venta" type="date">
+        <label for="empleado_id"> Fecha de venta  </label>
+      </span>
+    </div>
+    <br>
+    <div>
+      <span class="p-float-label">
+        <input id="empleado_id" pInputText formControlName="empleado_id" type="text">
+        <label for="empleado_id"> Id del empleado  </label>
+      </span>
+    </div>
+    <br>
+    <div>
+      <span class="p-float-label">
+        <input id="cliente_id" pInputText formControlName="cliente_id" type="text">
+        <label for="cliente_id"> Id del cliente  </label>
+      </span>
+    </div>
+
+  </form>
+  <ng-template pTemplate="footer">
+    <button pButton label="Guardar" (click)="add_facturas()"></button>
+  </ng-template>
+</p-dialog>

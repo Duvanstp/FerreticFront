@@ -33,6 +33,8 @@ import { InventarioComponent } from './inventario/inventario.component';
 import { ClientesComponent } from './clientes/clientes.component';
 import {AuthGuard} from "./providers/auth.guard";
 import {PasswordModule} from 'primeng/password';
+import { DetalleComponent } from './detalle/detalle.component';
+
 
 
 // @ts-ignore
@@ -49,7 +51,9 @@ import {PasswordModule} from 'primeng/password';
     ProductoComponent,
     FacturaComponent,
     InventarioComponent,
-    ClientesComponent
+    ClientesComponent,
+    DetalleComponent,
+
   ],
   imports: [
     BrowserModule,
