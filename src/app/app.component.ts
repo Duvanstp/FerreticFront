@@ -25,7 +25,9 @@ export class AppComponent {
       {label:'Gestión productos',command:(event) => {
           this.router.navigate(['/producto']);
         }},
-
+      {label:'Producto Pedido',command:(event) => {
+          this.router.navigate(['/producto_pedido']);
+        }},
       {label:'Factura pedido',command:(event) => {
           this.router.navigate(['/factura_pedido']);
         }},
