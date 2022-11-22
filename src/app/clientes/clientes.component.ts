@@ -30,7 +30,6 @@ export class ClientesComponent implements OnInit {
     this.api.get('cliente')
       .subscribe(data =>{
           this.clientes = data;
-          console.log(data)
         }
       )
   }
@@ -49,7 +48,6 @@ export class ClientesComponent implements OnInit {
           this.get_clientes()
           this.cliente_form.reset()
           this.ver_form_cliente = false
-          console.log(data)
         }
       )
   }
@@ -72,7 +70,6 @@ export class ClientesComponent implements OnInit {
           this.get_clientes()
           this.cliente_form.reset()
           this.ver_form_cliente = false
-
         }
       )
   }

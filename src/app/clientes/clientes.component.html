@@ -30,26 +30,26 @@
     </ng-template>
   </p-table>
 </div>
-<p-dialog header="Cine" [(visible)]="ver_form_cliente">
+<p-dialog header="Cliente" [(visible)]="ver_form_cliente">
   <form style="text-align: center" [formGroup]="cliente_form">
     <div style="padding: 20px">
-      <input formControlName="nombre" type="text" placeholder="Nombres">
+      <input pInputText formControlName="nombre" type="text" placeholder="Nombres">
     </div>
     <br>
     <div style="padding: 20px">
-      <input formControlName="apellidos" type="text" placeholder="Apellidos">
+      <input pInputText formControlName="apellidos" type="text" placeholder="Apellidos">
     </div>
     <br>
     <div style="padding: 20px">
-      <input formControlName="direccion" type="text" placeholder="Dirección">
+      <input pInputText formControlName="direccion" type="text" placeholder="Dirección">
     </div>
     <br>
     <div style="padding: 20px">
-      <input formControlName="telefono" type="text" placeholder="Telefono">
+      <input pInputText formControlName="telefono" type="text" placeholder="Telefono">
     </div>
     <br>
     <div style="padding: 20px">
-      <input formControlName="correo" type="text" placeholder="Correo">
+      <input pInputText formControlName="correo" type="text" placeholder="Correo">
     </div>
     <br>
     </form>

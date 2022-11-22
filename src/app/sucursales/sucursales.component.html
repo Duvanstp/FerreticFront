@@ -1,1 +1,66 @@
-<p>sucursales works!</p>
+<div style="padding:30px ">
+  <p-table [value]="sucursales" styleClass="p-datatable-striped" [paginator]="true" [rows]="5" [showCurrentPageReport]="true">
+    <ng-template pTemplate="caption">
+      <p-button icon="pi pi-plus" (click)="ver_form_sucursal= true; sucursal_form.reset()" label="Crear Sucursal"></p-button>
+    </ng-template>
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Id</th>
+        <th>Empresa</th>
+        <th>Ciudad</th>
+        <th>Dirección</th>
+        <th>telefono</th>
+        <th>correo</th>
+        <th>gerente</th>
+        <th></th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-sucursal>
+      <tr>
+        <td>{{sucursal.id}}</td>
+        <td>{{sucursal.empresa.razon_social}}</td>
+        <td>{{sucursal.ciudad}}</td>
+        <td>{{sucursal.direccion}}</td>
+        <td>{{sucursal.telefono}}</td>
+        <td>{{sucursal.correo}}</td>
+        <td>{{sucursal.gerente}}</td>
+        <td>
+          <i pTooltip="Editar sucursal de {{sucursal.ciudad}}" style="cursor: pointer" class="pi pi-pencil" (click)="llenar_form_sucursal(sucursal);ver_form_sucursal=true"></i>
+        </td>
+
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
+<p-dialog header="Sucursal" [(visible)]="ver_form_sucursal">
+  <form style="text-align: center" [formGroup]="sucursal_form">
+    <div style="padding: 20px">
+      <label >Empresas</label>
+      <p-dropdown [options]="empresas" formControlName="empresa_id" optionLabel="razon_social" optionValue="id"></p-dropdown>
+    </div>
+    <div style="padding: 20px">
+      <input pInputText formControlName="ciudad" type="text" placeholder="Ciudad">
+    </div>
+    <br>
+    <div style="padding: 20px">
+      <input pInputText formControlName="direccion" type="text" placeholder="Dirección">
+    </div>
+    <br>
+    <div style="padding: 20px">
+      <input pInputText formControlName="telefono" type="text" placeholder="Telefono">
+    </div>
+    <br>
+    <div style="padding: 20px">
+      <input pInputText formControlName="correo" type="text" placeholder="Correo">
+    </div>
+    <br>
+    <div style="padding: 20px">
+      <input pInputText formControlName="gerente" type="text" placeholder="Gerente">
+    </div>
+    <br>
+  </form>
+  <ng-template pTemplate="footer">
+    <button [disabled]="!sucursal_form.valid" pButton label="Guardar" (click)="guardar_sucursal()"></button>
+  </ng-template>
+</p-dialog>
+
