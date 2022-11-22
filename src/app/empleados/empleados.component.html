@@ -20,30 +20,30 @@
     <ng-template pTemplate="body" let-empleado>
       <tr>
         <td>{{empleado.id}}</td>
-        <td>{{empleado.nombre}}</td>
-        <td>{{empleado.apellidos}}</td>
+        <td>{{empleado.first_name}}</td>
+        <td>{{empleado.last_name}}</td>
         <td>{{empleado.direccion}}</td>
         <td>{{empleado.telefono}}</td>
-        <td>{{empleado.correo}}</td>
+        <td>{{empleado.email}}</td>
         <td>{{empleado.fecha_nacimiento}}</td>
         <td>{{empleado.username}}</td>
         <td>{{empleado.sucursal.ciudad}}</td>
         <td>
-          <i pTooltip="Editar {{empleado.nombre}}" style="cursor: pointer" class="pi pi-pencil" (click)="llenar_form_empleado(empleado);ver_form_empleados=true"></i>
+          <i pTooltip="Editar {{empleado.first_name}}" style="cursor: pointer" class="pi pi-pencil" (click)="llenar_form_empleado(empleado);ver_form_empleados=true"></i>
         </td>
 
       </tr>
     </ng-template>
   </p-table>
 </div>
-<p-dialog header="Cine" [(visible)]="ver_form_empleados">
+<p-dialog header="Empleado" [(visible)]="ver_form_empleados">
   <form style="text-align: center" [formGroup]="empleado_form">
     <div style="padding: 20px">
-      <input formControlName="nombre" type="text" placeholder="Nombres">
+      <input formControlName="first_name" type="text" placeholder="Nombres">
     </div>
     <br>
     <div style="padding: 20px">
-      <input formControlName="apellidos" type="text" placeholder="Apellidos">
+      <input formControlName="last_name" type="text" placeholder="Apellidos">
     </div>
     <br>
     <div style="padding: 20px">
@@ -55,11 +55,11 @@
     </div>
     <br>
     <div style="padding: 20px">
-      <input formControlName="correo" type="text" placeholder="Correo">
+      <input formControlName="email" type="text" placeholder="Correo">
     </div>
     <br>
     <div style="padding: 20px">
-      <input formControlName="fecha_nacimiento" type="text" placeholder="Fecha Nacimiento">
+      <input formControlName="fecha_nacimiento" type="date" placeholder="Fecha Nacimiento">
     </div>
     <br>
     <div style="padding: 20px">
@@ -74,6 +74,12 @@
       <label >sucursales</label>
       <p-dropdown [options]="sucursales" formControlName="sucursal_id" optionLabel="ciudad" optionValue="id"></p-dropdown>
     </div>
+    <br>
+    <div style="padding: 20px">
+      <label style="margin-top: 15px" formControlName="is_superuser">Superuser</label>
+      <p-selectButton id="is_superuser" [options]="opciones" formControlName="is_superuser" optionLabel="name" optionValue="code"></p-selectButton>
+    </div>
+    <br>
   </form>
   <ng-template pTemplate="footer">
     <button [disabled]="!empleado_form.valid" pButton label="Guardar" (click)="guardar_empleado()"></button>

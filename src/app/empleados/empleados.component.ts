@@ -13,15 +13,16 @@ export class EmpleadosComponent implements OnInit {
   ver_form_empleados = false;
   empleado_form = this.fb.group({
     id: [''],
-    nombre : ['', Validators.required],
-    apellidos : ['',Validators.required],
+    first_name : ['', Validators.required],
+    last_name : ['',Validators.required],
     direccion : ['',Validators.required],
     telefono : ['',Validators.required],
-    correo : ['',Validators.required],
+    email : ['',Validators.required],
     fecha_nacimiento : ['',Validators.required],
     username : ['',Validators.required],
     password : ['',Validators.required],
     sucursal_id: ['',Validators.required],
+    is_superuser : [''],
 
   })
 
@@ -71,20 +72,22 @@ export class EmpleadosComponent implements OnInit {
   llenar_form_empleado(data: any){
     this.empleado_form.patchValue({
       id: data.id,
-      nombre:data.nombre,
-      apellidos:data.apellidos,
+      first_name:data.first_name,
+      last_name:data.last_name,
       direccion:data.direccion,
       telefono:data.telefono,
-      correo:data.correo,
+      email:data.email,
       fecha_nacimiento:data.fecha_nacimiento,
       username:data.username,
       password:data.password,
       sucursal_id:data.sucursal.id,
+      is_superuser:data.is_superuser
+
 
 
     })
   }
-  opciones = [{name:'Activo',code:true},{name:'Inactivo',code:false}]
+  opciones = [{name:'Si',code:true},{name:'No',code:false}]
 
   update_empleado(){
     this.api.update('empleado',this.empleado_form.value,this.empleado_form.value['id'])
