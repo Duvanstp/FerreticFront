@@ -55,7 +55,6 @@ import { ProductoPedidoComponent } from './producto-pedido/producto-pedido.compo
     ClientesComponent,
     DetalleComponent,
     ProductoPedidoComponent,
-
   ],
   imports: [
     BrowserModule,

@@ -7,6 +7,7 @@ import {ApiService} from "../providers/api.service";
   templateUrl: './producto-pedido.component.html',
   styleUrls: ['./producto-pedido.component.css']
 })
+
 export class ProductoPedidoComponent implements OnInit {
 
   producto_pedidos:any = []

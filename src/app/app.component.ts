@@ -46,7 +46,6 @@ export class AppComponent {
       {label:'Salir', command:(event) => {
           this.api.LogOut();
         }},
-
     ]
   }
 }
