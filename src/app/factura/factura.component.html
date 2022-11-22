@@ -19,7 +19,7 @@
         <td>{{factura.id}}</td>
         <td>{{factura.fecha_venta}}</td>
         <td>{{factura.cliente.nombre}}</td>
-        <td>{{factura.empleado.id}}</td>
+        <td>{{factura.empleado.first_name}}</td>
         <td>
           <i style="cursor: pointer" class="pi pi-pencil" (click)="llenar_form_factura(factura);ver_form_factura=true"></i>
         </td>
@@ -32,8 +32,8 @@
     <br>
     <div>
       <span class="p-float-label">
-        <input id="fecha_venta" pInputText formControlName="fecha_venta" type="date">
-        <label for="empleado_id">  </label>
+        <input id="fecha_venta" pInputText formControlName="fecha_venta" type="text">
+        <label for="fecha_venta"> Fecha de venta </label>
       </span>
     </div>
     <br>
@@ -53,6 +53,6 @@
 
   </form>
   <ng-template pTemplate="footer">
-    <button [disabled]="!factura_form.valid" pButton label="Guardar" (click)="add_facturas()"></button>
+    <button [disabled]="!factura_form.valid" pButton label="Guardar" (click)="guardar_factura()"></button>
   </ng-template>
 </p-dialog>

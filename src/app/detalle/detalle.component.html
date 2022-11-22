@@ -22,7 +22,7 @@
         <td>{{detalle.factura.id}}</td>
         <td>{{detalle.producto.nombre}}</td>
         <td>
-          <i style="cursor: pointer" class="pi pi-pencil" (click)="llenar_form_detalles(detalles);ver_form_detalle=true"></i>
+          <i style="cursor: pointer" class="pi pi-pencil" (click)="llenar_form_detalles(detalle);ver_form_detalle=true"></i>
         </td>
       </tr>
     </ng-template>
@@ -33,27 +33,34 @@
     <br>
     <div>
       <span class="p-float-label">
-        <input id="fecha_venta" pInputText formControlName="fecha_venta" type="date">
-        <label for="empleado_id"> Cantida  </label>
+        <input id="cantidad" pInputText formControlName="cantidad" type="text">
+        <label for="cantidad"> Cantidad  </label>
       </span>
     </div>
     <br>
     <div>
       <span class="p-float-label">
-        <input id="empleado_id" pInputText formControlName="empleado_id" type="text">
-        <label for="empleado_id"> Id del empleado  </label>
+        <input id="valor_total" pInputText formControlName="valor_total" type="text">
+        <label for="valor_total"> Valor total </label>
       </span>
     </div>
     <br>
     <div>
       <span class="p-float-label">
-        <input id="cliente_id" pInputText formControlName="cliente_id" type="text">
-        <label for="cliente_id"> Id del cliente  </label>
+        <input id="factura_id" pInputText formControlName="factura_id" type="text">
+        <label for="factura_id"> Factura id  </label>
       </span>
     </div>
-
+    <br>
+    <div>
+      <span class="p-float-label">
+        <input id="producto_id" pInputText formControlName="producto_id" type="text">
+        <label for="producto_id"> producto  </label>
+      </span>
+    </div>
+    <br>
   </form>
   <ng-template pTemplate="footer">
-    <button [disabled]="!detalles_form.valid" pButton label="Guardar" (click)="add_detalles()"></button>
+    <button [disabled]="!detalles_form.valid" pButton label="Guardar" (click)="guardar_detalle()"></button>
   </ng-template>
 </p-dialog>

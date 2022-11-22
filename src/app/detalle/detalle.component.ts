@@ -25,9 +25,6 @@ export class DetalleComponent implements OnInit {
 
   ngOnInit(): void {
     this.get_detalles()
-    this.add_detalles()
-    this.update_detalles()
-    this.llenar_form_detalles(this.detalles)
   }
 
   get_detalles(){
@@ -38,6 +35,14 @@ export class DetalleComponent implements OnInit {
           console.log(data)
         }
       )
+  }
+
+  guardar_detalle(){
+    if(this.detalles_form.value['id']){
+      this.update_detalles()
+    }else{
+      this.add_detalles()
+    }
   }
 
   add_detalles(){
@@ -55,10 +60,10 @@ export class DetalleComponent implements OnInit {
   llenar_form_detalles(data:any){
     this.detalles_form.patchValue({
         id:data.id,
-        cantidad:data.id,
+        cantidad:data.cantidad,
         valor_total:data.valor_total,
-        factura_id:data.factura_id,
-        producto_id:data.producto_id
+        factura_id:data.factura.id,
+        producto_id:data.producto.id
       }
 
     )
@@ -73,9 +78,5 @@ export class DetalleComponent implements OnInit {
         console.log(data)
       }
     )
-
   }
-
-
-
 }

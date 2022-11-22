@@ -24,9 +24,7 @@ export class FacturaComponent implements OnInit {
 
   ngOnInit(): void {
     this.get_facturas()
-    this.add_facturas()
-    this.update_facturas()
-    this.llenar_form_factura(this.facturas)
+    this.factura_form.reset()
   }
 
 get_facturas(){
@@ -34,18 +32,27 @@ get_facturas(){
       .subscribe(
         data=>{
           this.facturas = data
-          console.log(data)
+
         }
       )
 
 }
+
+  guardar_factura(){
+    if(this.factura_form.value['id']){
+      this.update_facturas()
+    }else{
+      this.add_facturas()
+    }
+  }
+
 add_facturas(){
     this.api.post('factura',this.factura_form.value).subscribe(
       data=>{
         this.get_facturas()
         this.factura_form.reset()
         this.ver_form_factura=false
-        console.log(data)
+
       }
   )
 
@@ -55,8 +62,8 @@ add_facturas(){
     this.factura_form.patchValue({
       id:data.id,
       fecha_venta:data.fecha_venta,
-      cliente_id:data.cliente_id,
-      empleado_id:data.empleado_id
+      cliente_id:data.cliente.nombre,
+      empleado_id:data.empleado.first_name
       }
 
     )
@@ -68,7 +75,7 @@ add_facturas(){
         this.get_facturas()
         this.factura_form.reset()
         this.ver_form_factura=false
-        console.log(data)
+
       }
     )
 
