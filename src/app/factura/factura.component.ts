@@ -26,6 +26,7 @@ export class FacturaComponent implements OnInit {
     this.get_facturas()
     this.add_facturas()
     this.update_facturas()
+    this.llenar_form_factura(this.facturas)
   }
 
 get_facturas(){

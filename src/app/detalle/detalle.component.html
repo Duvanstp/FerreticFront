@@ -1,7 +1,12 @@
 <div style="padding: 20px" >
 
 
-  <p-table [value]="detalles">
+  <p-table [value]="detalles" styleClass="p-datatable-striped" [paginator]="true" [rows]="10"
+           [showCurrentPageReport]="true" [tableStyle]="{'min-width': '50rem'}"
+           currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
+    <ng-template pTemplate="caption">
+      <p-button icon="pi pi-plus" (click)="ver_form_detalle=true" label="Generar detalle factura"> </p-button>
+    </ng-template>
     <ng-template pTemplate="header">
       <tr>
         <th> Cantidad</th>
@@ -14,9 +19,41 @@
       <tr>
         <td>{{detalle.cantidad}}</td>
         <td>{{detalle.valor_total}}</td>
-        <td>{{detalle.factura_id}}</td>
-        <td>{{detalle.producto_id}}</td>
+        <td>{{detalle.factura.id}}</td>
+        <td>{{detalle.producto.nombre}}</td>
+        <td>
+          <i style="cursor: pointer" class="pi pi-pencil" (click)="llenar_form_detalles(detalles);ver_form_detalle=true"></i>
+        </td>
       </tr>
     </ng-template>
   </p-table>
 </div>
+<p-dialog header="Detalle" [(visible)]="ver_form_detalle">
+  <form [formGroup]="detalles_form" >
+    <br>
+    <div>
+      <span class="p-float-label">
+        <input id="fecha_venta" pInputText formControlName="fecha_venta" type="date">
+        <label for="empleado_id"> Cantida  </label>
+      </span>
+    </div>
+    <br>
+    <div>
+      <span class="p-float-label">
+        <input id="empleado_id" pInputText formControlName="empleado_id" type="text">
+        <label for="empleado_id"> Id del empleado  </label>
+      </span>
+    </div>
+    <br>
+    <div>
+      <span class="p-float-label">
+        <input id="cliente_id" pInputText formControlName="cliente_id" type="text">
+        <label for="cliente_id"> Id del cliente  </label>
+      </span>
+    </div>
+
+  </form>
+  <ng-template pTemplate="footer">
+    <button [disabled]="!detalles_form.valid" pButton label="Guardar" (click)="add_detalles()"></button>
+  </ng-template>
+</p-dialog>
