@@ -17,7 +17,7 @@ export class DetalleComponent implements OnInit {
   }
 
   get_detalles(){
-    this.api.get('detalle_factura')
+    this.api.get('detallefactura')
       .subscribe(
         data=>{
           this.detalles = data
