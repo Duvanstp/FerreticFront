@@ -1,25 +1,16 @@
 .main{
-  background-image: url(../../assets/Fondo1.jpg);
-  background-size: cover;
   width: 100%;
-  height: 40rem;
+  height:min-content;
   display:flex;
   justify-content: center;
   align-items:center;
 }
 .title{
-  background-color: transparent;
+  background-color: #e8b079;
   border-radius: 20px;
-  color: #112177;
+  color: #c96b28;
+  opacity:0.5;
   box-shadow: 6px 6px 6px 7px #248383,6px 6px 6px 7px #80d3d3,6px 6px 6px 7px #172121;
   font: bold 15rem/1 arial;
   text-transform: uppercase;
-  text-shadow: 0  2px  0   #137c79,
-  0  4px  0 #137c79,
-  0  6px  0   #137c79,
-  0  8px  0   #137c79,
-  0 6px  0 #248383,
-  0 12px  0 #113d56,
-  3px 8px 10px rgba(0,0,0,0.1),
-  3px 8px  5px rgba(0,0,0,0.3);
 }

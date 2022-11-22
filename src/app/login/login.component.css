@@ -2,7 +2,7 @@
 .container{
   width: 80rem;
   height: 40rem;
-  background-color: #ded7d7;
+  background-color: transparent;
   display: flex;
   justify-content: center;
   align-items: center;
