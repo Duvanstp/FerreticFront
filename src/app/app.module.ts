@@ -9,7 +9,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {ApiService} from "./providers/api.service";
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ToastModule} from 'primeng/toast';
-import { MessageService } from 'primeng/api';
+import {MessageService} from 'primeng/api';
 import {TableModule} from 'primeng/table';
 import {DialogModule} from 'primeng/dialog';
 import {ButtonModule} from "primeng/button";
@@ -34,6 +34,7 @@ import { ClientesComponent } from './clientes/clientes.component';
 import {AuthGuard} from "./providers/auth.guard";
 import {PasswordModule} from 'primeng/password';
 import { DetalleComponent } from './detalle/detalle.component';
+import { ProductoPedidoComponent } from './producto-pedido/producto-pedido.component';
 import {StyleClassModule} from 'primeng/styleclass';
 import {ImageModule} from 'primeng/image';
 import {CardModule} from 'primeng/card';
@@ -54,6 +55,7 @@ import {CardModule} from 'primeng/card';
     InventarioComponent,
     ClientesComponent,
     DetalleComponent,
+    ProductoPedidoComponent,
   ],
   imports: [
     BrowserModule,

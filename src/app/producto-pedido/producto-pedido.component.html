@@ -1,0 +1,61 @@
+<div style="padding:30px ">
+  <p-table [value]="producto_pedidos" styleClass="p-datatable-striped" [paginator]="true" [rows]="5" [showCurrentPageReport]="true">
+    <ng-template pTemplate="caption">
+      <p-button icon="pi pi-plus" (click)="ver_form_producto_pedidos= true; producto_pedido_form.reset()" label="Crear Producto Pedidos"></p-button>
+    </ng-template>
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Id</th>
+        <th>Nombre</th>
+        <th>Fabricante</th>
+        <th>Descripcion</th>
+        <th>Peso</th>
+        <th>Tipo</th>
+        <th></th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-producto_pedido>
+      <tr>
+        <td>{{producto_pedido.id}}</td>
+        <td>{{producto_pedido.nombre}}</td>
+        <td>{{producto_pedido.fabricante}}</td>
+        <td>{{producto_pedido.descripcion}}</td>
+        <td>{{producto_pedido.peso}}</td>
+        <td>{{producto_pedido.tipo}}</td>
+        <td>
+          <i pTooltip="Editar {{producto_pedido.nombre}}" style="cursor: pointer" class="pi pi-pencil" (click)="llenar_form_producto_pedido(producto_pedido);ver_form_producto_pedidos=true"></i>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
+
+
+<p-dialog header="Producto Pedidos" [(visible)]="ver_form_producto_pedidos">
+  <form style="text-align: center" [formGroup]="producto_pedido_form">
+    <div style="padding: 20px">
+      <input formControlName="nombre" type="text" placeholder="Nombre">
+    </div>
+    <br>
+    <div style="padding: 20px">
+      <input formControlName="fabricante" type="text" placeholder="Fabricante">
+    </div>
+    <br>
+    <div style="padding: 20px">
+      <input formControlName="descripcion" type="text" placeholder="Descripcion">
+    </div>
+    <br>
+    <div style="padding: 20px">
+      <input formControlName="peso" type="text" placeholder="Peso">
+    </div>
+    <br>
+    <div style="padding: 20px">
+      <input formControlName="tipo" type="text" placeholder="Tipo">
+    </div>
+    <br>
+  </form>
+  <ng-template pTemplate="footer">
+    <button [disabled]="!producto_pedido_form.valid" pButton label="Guardar" (click)="guardar_producto_pedido()"></button>
+  </ng-template>
+</p-dialog>
+
