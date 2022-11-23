@@ -1,0 +1,16 @@
+.main{
+  width: 100%;
+  height:min-content;
+  display:flex;
+  justify-content: center;
+  align-items:center;
+}
+.title{
+  background-color: #e8b079;
+  border-radius: 20px;
+  color: #c96b28;
+  opacity:0.5;
+  box-shadow: 6px 6px 6px 7px #248383,6px 6px 6px 7px #80d3d3,6px 6px 6px 7px #172121;
+  font: bold 15rem/1 arial;
+  text-transform: uppercase;
+}

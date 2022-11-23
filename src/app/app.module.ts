@@ -35,8 +35,9 @@ import {AuthGuard} from "./providers/auth.guard";
 import {PasswordModule} from 'primeng/password';
 import { DetalleComponent } from './detalle/detalle.component';
 import { ProductoPedidoComponent } from './producto-pedido/producto-pedido.component';
-
-
+import {StyleClassModule} from 'primeng/styleclass';
+import {ImageModule} from 'primeng/image';
+import {CardModule} from 'primeng/card';
 
 // @ts-ignore
 // @ts-ignore
@@ -73,7 +74,10 @@ import { ProductoPedidoComponent } from './producto-pedido/producto-pedido.compo
     DropdownModule,
     OverlayPanelModule,
     InputTextModule,
-    PasswordModule
+    PasswordModule,
+    StyleClassModule,
+    ImageModule,
+    CardModule
   ],
   providers: [ApiService, MessageService, AuthGuard],
   bootstrap: [AppComponent]

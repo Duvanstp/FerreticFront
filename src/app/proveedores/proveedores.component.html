@@ -1,1 +1,59 @@
-<p>proveedores works!</p>
+<div style="padding:30px;">
+  <p-table [value]="proveedores" styleClass="p-datatable-striped" [paginator]="true" [rows]="5" [showCurrentPageReport]="true">
+    <ng-template pTemplate="caption">
+      <p-button icon="pi pi-plus" (click)="ver_form_proveedores= true; proveedor_form.reset()" label="Crear proveedor"></p-button>
+    </ng-template>
+    <ng-template class="table2" pTemplate="header">
+      <tr>
+        <th>Id</th>
+        <th>Nombre</th>
+        <th>Dirección</th>
+        <th>Producto</th>
+        <th>Nit</th>
+        <th>Telefono</th>
+        <th></th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-proveedor>
+      <tr>
+        <td>{{proveedor.id}}</td>
+        <td>{{proveedor.nombre}}</td>
+        <td>{{proveedor.direccion}}</td>
+        <td>{{proveedor.producto}}</td>
+        <td>{{proveedor.nit}}</td>
+        <td>{{proveedor.telefono}}</td>
+        <td>
+          <i pTooltip="Editar {{proveedor.nombre}}" style="cursor: pointer" class="pi pi-pencil" (click)="llenar_form_proveedor(proveedor);ver_form_proveedores=true"></i>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
+<p-dialog header="Proveedor" [(visible)]="ver_form_proveedores">
+  <form style="text-align: center" [formGroup]="proveedor_form">
+    <div style="padding: 20px">
+      <input pInputText formControlName="nombre" type="text" placeholder="Nombres">
+    </div>
+    <br>
+    <div style="padding: 20px">
+      <input pInputText formControlName="direccion" type="text" placeholder="Dirección">
+    </div>
+    <br>
+    <div style="padding: 20px">
+      <input pInputText formControlName="producto" type="text" placeholder="Producto">
+    </div>
+    <br>
+    <div style="padding: 20px">
+      <input pInputText formControlName="nit" type="text" placeholder="Nit">
+    </div>
+    <br>
+    <div style="padding: 20px">
+      <input pInputText formControlName="telefono" type="text" placeholder="Teléfono">
+    </div>
+    <br>
+  </form>
+  <ng-template pTemplate="footer">
+    <button [disabled]="!proveedor_form.valid" pButton label="Guardar" (click)="guardar_proveedor()"></button>
+  </ng-template>
+</p-dialog>
+

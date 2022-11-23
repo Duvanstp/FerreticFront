@@ -37,7 +37,6 @@ export class EmpleadosComponent implements OnInit {
     this.api.get('sucursal')
       .subscribe(data =>{
           this.sucursales = data;
-          console.log(data)
         }
       )
   }
@@ -46,7 +45,6 @@ export class EmpleadosComponent implements OnInit {
     this.api.get('empleado')
       .subscribe(data =>{
           this.empleados = data;
-          console.log(data)
         }
       )
   }
@@ -65,7 +63,6 @@ export class EmpleadosComponent implements OnInit {
           this.get_empleados()
           this.empleado_form.reset()
           this.ver_form_empleados = false
-          console.log(data)
         }
       )
   }
@@ -84,7 +81,6 @@ export class EmpleadosComponent implements OnInit {
       is_superuser:data.is_superuser
 
 
-
     })
   }
   opciones = [{name:'Si',code:true},{name:'No',code:false}]
@@ -95,7 +91,6 @@ export class EmpleadosComponent implements OnInit {
           this.get_empleados()
           this.empleado_form.reset()
           this.ver_form_empleados = false
-
         }
       )
   }
